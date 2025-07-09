@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import axios from 'axios';
 
-const API_KEY = 'ad301b7cc82ffe19273e55e4d4206885';
+const API_KEY = process.env.TMDB_API_KEY!;
 const API_BASE_URL = 'https://db.cineby.app/3';
 
 const fetchMovieDetails = async (id: string) => {
