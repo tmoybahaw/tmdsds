@@ -22,7 +22,30 @@ export default function MoviePage() {
   const router = useRouter();
   const { params } = router.query;
 
-  const [movie, setMovie] = useState<any>(null);
+ interface MovieDetails {
+  id: number;
+  title: string;
+  overview: string;
+  release_date: string;
+  runtime: number;
+  poster_path: string;
+  backdrop_path: string;
+  credits?: {
+    cast?: {
+      id: number;
+      name: string;
+      profile_path: string;
+    }[];
+  };
+  videos?: {
+    results?: {
+      key: string;
+      type: string;
+    }[];
+  };
+}
+
+const [movie, setMovie] = useState<MovieDetails | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
